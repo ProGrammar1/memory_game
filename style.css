@@ -119,7 +119,7 @@ h1 {
     text-transform: uppercase;
     margin-left: -900px;
     max-width: 40%;
-    stroke: black;
+    -webkit-text-stroke: 1px  linear-gradient(to right,#ec008c, #ffb97f);
 
   }
   

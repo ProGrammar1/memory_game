@@ -1,5 +1,6 @@
 const cards = document.querySelectorAll('.card');
 let card1,card2;
+var counter = 0;
 
 function flipcard(e){
     let clickedCard = e.target;
@@ -36,15 +37,37 @@ function matchcards(img1,img2){
             card2.classList.remove('vibration','flip');
             card1 = '';
             card2 = '';
-        },1200);     
+        },500);     
     }
     else{
-        card1.removeEventListener('click',flipcard);
-        card2.removeEventListener('click',flipcard);
-        card1 = '';
-        card2 = '';
+
+        counter++;
+
+        if(counter != 15){
+            console.log(counter);
+            card1.removeEventListener('click',flipcard);
+            card2.removeEventListener('click',flipcard);
+            card1 = '';
+            card2 = '';
+
+        }
+        else{
+            reset();
+            counter = 0;
+        }
+      
     }
 
+}
+
+function reset(){
+    setTimeout(() => {
+        cards.forEach( card => {
+            card.classList.remove('flip');
+        });
+
+    }, 400);
+   
 }
 
 cards.forEach( card => {

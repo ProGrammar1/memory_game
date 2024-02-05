@@ -42,31 +42,30 @@ function matchcards(img1,img2){
     else{
 
         counter++;
+        console.log(counter);
+        card1.removeEventListener('click',flipcard);
+        card2.removeEventListener('click',flipcard);
+        card1 = '';
+        card2 = '';
 
-        if(counter != 15){
-            console.log(counter);
-            card1.removeEventListener('click',flipcard);
-            card2.removeEventListener('click',flipcard);
-            card1 = '';
-            card2 = '';
-
-        }
-        else{
+        if(counter == 15){
             reset();
-            counter = 0;
-        }
+          }
+      
       
     }
 
 }
 
 function reset(){
+    counter = 0;
     setTimeout(() => {
         cards.forEach( card => {
             card.classList.remove('flip');
+            card.addEventListener('click', flipcard);
         });
 
-    }, 400);
+    }, 400)
    
 }
 
